@@ -1,0 +1,123 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* ビューポートの高さに合わせて中央揃え */
+    margin: 0;
+    background: linear-gradient to bottom right, #ece9e6, #ffffff; /* 淡いグラデーション */
+    color: #333;
+}
+
+.calculator {
+    width: 320px; /* 電卓の固定幅 */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* 柔らかな影 */
+    background-color: #fcfcfc; /* やや明るい背景 */
+    padding: 20px;
+    box-sizing: border-box; /* パディングを含めて幅を計算 */
+}
+
+.display {
+    margin-bottom: 20px;
+}
+
+#display {
+    width: 100%;
+    padding: 15px;
+    font-size: 2.8em; /* ディスプレイの文字サイズを大きく */
+    text-align: right;
+    border: none; /* ボーダーなし */
+    border-radius: 8px;
+    background-color: #e0e0e0; /* ディスプレイの背景色 */
+    color: #333; /* 文字色 */
+    box-sizing: border-box;
+    height: 70px;
+    outline: none; /* フォーカス時のアウトラインを消す */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* 埋め込みのような影 */
+    font-weight: 300; /* 細めのフォント */
+}
+
+#display::-webkit-input-placeholder {
+    color: #888;
+}
+
+#display::-moz-placeholder {
+    color: #888;
+}
+
+#display:-ms-input-placeholder {
+    color: #888;
+}
+
+#display::-ms-input-placeholder {
+    color: #888;
+}
+
+#display::placeholder {
+    color: #888;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4列のグリッド */
+    gap: 10px; /* ボタン間のスペース */
+}
+
+.button {
+    padding: 20px 0; /* 上下のパディングを調整 */
+    font-size: 1.5em; /* ボタンの文字サイズ */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #e6e6e6; /* 数字ボタンのデフォルト背景色 */
+    color: #333;
+    transition: background-color 0.2s, box-shadow 0.2s; /* ホバーエフェクト */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* ボタンの影 */
+    font-weight: 400; /* やや細めのフォント */
+}
+
+.button:hover {
+    background-color: #dcdcdc; /* ホバー時の背景色 */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 演算子ボタンのスタイル */
+.button.operator {
+    background-color: #ff9500; /* オレンジ */
+    color: white;
+    font-weight: 500;
+}
+
+.button.operator:hover {
+    background-color: #e08500;
+}
+
+/* イコールボタンのスタイル (幅を広げる) */
+.button.equals {
+    grid-column: span 2; /* 2列分の幅 */
+    background-color: #007aff; /* ブルー */
+    color: white;
+    font-weight: 500;
+}
+
+.button.equals:hover {
+    background-color: #006ee6;
+}
+
+/* クリアボタンのスタイル */
+.button.clear {
+    background-color: #d3d3d3; /* 薄いグレー */
+    color: #333;
+}
+
+.button.clear:hover {
+    background-color: #c0c0c0;
+}
+
+/* エラーメッセージのスタイル */
+#display[value^="エラー"] {
+    color: #d9534f; /* エラー時は赤系の文字色 */
+    font-size: 1.5em; /* エラー時は文字サイズを小さく */
+    font-weight: 600;
+}
